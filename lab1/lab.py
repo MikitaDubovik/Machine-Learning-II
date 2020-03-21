@@ -37,7 +37,6 @@ def plot_dependency_graph(score_examples_number):
 
 def run():
     dataset_url="https://commondatastorage.googleapis.com/books1000/notMNIST_large.tar.gz"
-    #dataset_url="https://commondatastorage.googleapis.com/books1000/notMNIST_small.tar.gz"
     img_height=img_width=28
     classes=["A","B","C","D","E","F","G","H","I","J"]
 
@@ -46,9 +45,7 @@ def run():
     lab.show_images(X,Y,classes,img_height,img_width)
     lab.show_percentages(Y,classes)
     X_train,X_valid,X_test,Y_train,Y_valid,Y_test=lab.split_dataset(X,Y,200000,10000,19000)
-    #X_train,X_valid,X_test,Y_train,Y_valid,Y_test=lab.split_dataset(X,Y,1000,400,400)
     plot_dependency_graph(calc_score_examples_number(X_train,Y_train,X_valid,Y_valid,X_test,Y_test,[50,100,1000,50000]))
-    #plot_dependency_graph(calc_score_examples_number(X_train,Y_train,X_valid,Y_valid,X_test,Y_test,[50,100,500,1000]))
 
 if __name__ == "__main__":
     run()
